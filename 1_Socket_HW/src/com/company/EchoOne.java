@@ -13,7 +13,6 @@ import java.util.Scanner;
 public class EchoOne {
     private static final String HOST_NAME = "localhost";
     private static final int PORT = 31111;
-
     public static void main(String[] args) throws IOException {
         try (Socket echoSocket = new Socket(HOST_NAME, PORT);
              // get the output stream of the socket. We are sending this
@@ -23,14 +22,25 @@ public class EchoOne {
              Scanner in = new Scanner(echoSocket.getInputStream());
              // keyboard input
              Scanner stdIn = new Scanner(System.in)) {
-            String userInput;
+            final String[] userInput = new String[1];
+            String inputLine;
 
-            while((userInput = stdIn.nextLine()) != null) {
-                out.println(userInput);
-                System.out.println(in.nextLine());
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    while((userInput[0] = stdIn.nextLine()) != null) {
+                        out.println(userInput[0]);
+                    }
+                }
+            }).start();
+
+            while ((inputLine = in.nextLine()) != null) {
+                System.out.println(inputLine);
             }
 
 
         }
+
+
     }
 }
