@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app id="WebApp_ID" version="2.4" xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+	<display-name>2_Servlets</display-name>
+	<servlet>
+		<servlet-name>AdminServlet</servlet-name>
+		<servlet-class>org.elsys.ip.servlet.controller.AdminServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AdminServlet</servlet-name>
+		<url-pattern>/admin</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>UserServlet</servlet-name>
+		<servlet-class>org.elsys.ip.servlet.controller.UserServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>UserServlet</servlet-name>
+		<url-pattern>/user/*</url-pattern>
+	</servlet-mapping>
+	
+		<filter>
+		<filter-name>LoginFilter</filter-name>
+		<filter-class>org.elsys.ip.servlet.filter.LoginFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>LoginFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+	<servlet>
+		<servlet-name>LogoutServlet</servlet-name>
+		<servlet-class>org.elsys.ip.servlet.controller.LogoutServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>LogoutServlet</servlet-name>
+		<url-pattern>/logout</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>AddNewServlet</servlet-name>
+		<servlet-class>org.elsys.ip.servlet.controller.AddNewServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AddNewServlet</servlet-name>
+		<url-pattern>/new</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>TransferServlet</servlet-name>
+		<servlet-class>org.elsys.ip.servlet.controller.TransferServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>TransferServlet</servlet-name>
+		<url-pattern>/trans</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>DeleteServlet</servlet-name>
+		<servlet-class>org.elsys.ip.servlet.controller.DeleteServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DeleteServlet</servlet-name>
+		<url-pattern>/del</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>SearchServlet</servlet-name>
+		<servlet-class>org.elsys.ip.servlet.controller.SearchServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>SearchServlet</servlet-name>
+		<url-pattern>/search</url-pattern>
+	</servlet-mapping>
+</web-app>
